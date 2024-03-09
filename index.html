@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="bg-image"></div>
+
+    <div class="bg-text">
+        <h1>Car Damage Detection and Cost Estimation</h1>
+        <br>
+        <form  id="uploadForm" enctype="multipart/form-data" >
+            <div>
+                <label for="image1">Upload Car Image:</label>
+                <input type="file" id="fileInput" name="image" accept="image/*">
+            </div>
+            <br>
+            <div>
+                <label for="image3">Upload Seat Image:</label>
+                <input type="file" id="seatimage" name="seatimage" accept="image/*">
+            </div>
+            <br>
+            <div>
+                <label>Select Car Company</label>
+                <select id="carcompany">
+                    <option>Select Car</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Honda">Honda </option>
+                    <option value="Ford">Ford </option>
+                    <option value="Maruti Suzuki"> Maruti Suzuki</option>
+                    <option value="Hyundai">Hyundai </option>
+                    <option value="Mahindra">Mahindra </option>
+                    <option value="TATA Motors">TATA Motors </option>
+                    <option value="Volkswagon">Volkswagon</option>
+                    <option value="Renault">Renault</option>
+                    
+                </select>
+            </div>
+            <div> 
+                <button type="button" onclick="uploadImage()">Upload</button>
+            </div>
+            
+        </form>
+    </div>
+<h2>Image Upload</h2>
+
+<form id="uploadForm" enctype="multipart/form-data">
+    <input type="file" id="fileInput" name="image" accept="image/*">
+    <button type="button" onclick="uploadImage()">Upload</button>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="script.js">
+    
+</script>
+
+</body>
+</html>

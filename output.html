@@ -1,0 +1,147 @@
+ <!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Car Damage Detection Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("https://gaadiwaadi.com/wp-content/uploads/2022/03/Charge-Cars-1967-Ford-Mustang-EV-img1.jpg");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 40px;
+            background-color:transparent;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        h2 {
+            color: #bfd8f4;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .result-item {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color:rgb(210, 220, 229);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .result-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .result-item label {
+            font-weight: bold;
+            color: #070707;
+            flex: 1;
+            text-align: left;
+        }
+
+        .result-item p {
+            margin: 0;
+            color: #232121;
+            flex: 2;
+            text-align: right;
+        }
+
+        .yes {
+            color: #5cb85c;
+        }
+
+        .no {
+            color: #d9534f;
+        }
+
+        footer {
+            margin-top: 40px;
+            color: #777;
+            font-size: 12px;
+        }
+         
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Car Damage Detection Result</h2>
+
+        <div class="result-item">
+            <label>IS IT A CAR ?</label>
+            <p id="iscar" class="{{ result.is_car == 'Yuss' ? 'yes' : 'no' }}">{{ result.is_car }}</p>
+        </div>
+
+        <div class="result-item">
+            <label>IS IT DAMAGE ?</label>
+            <p id="isdamaged" class="{{ result.damage == 'Yuss' ? 'yes' : 'no' }}">{{ result.damage }}</p>
+        </div>
+
+        <div class="result-item">
+            <label>DAMAGE LOCATION :</label>
+            <p id="location">{{ result.damage_location }}</p>
+        </div>
+
+        <div class="result-item">
+            <label>DAMAGE SEVERITY :</label>
+            <p id="severity">{{ result.damage_severity }}</p>
+        </div>
+
+        <div class="result-item">
+            <label>REPAIR COST EESTIMATION :</label>
+            <p id="cost">{{ result.cost_estimation }}</p>
+        </div>
+
+        
+
+        <div class="result-item">
+            <label>Is Seat Damaged?</label>
+            <p id="seatdamage" class="{{ result.seat_damage == 'Yuss' ? 'yes' : 'no' }}">{{ result.seat_damage }}</p>
+        </div>
+
+        <div class="result-item">
+            <label>Cost Estimation of seat:</label>
+            <p>Rs.30000</p>
+        </div>
+    </div>
+
+        
+
+   
+
+</body>
+<script>
+     const urlParams = new URLSearchParams(window.location.search);
+        const result = urlParams.get('result');
+        
+        const finalresult=JSON.parse(result);
+        console.log(finalresult);
+        document.getElementById("iscar").innerHTML=finalresult.CAR_or_NOT
+        document.getElementById("seatdamage").innerHTML=finalresult.Seat_damaged_or_not
+        document.getElementById("isdamaged").innerHTML=finalresult.Damaged_or_Not
+        document.getElementById("location").innerHTML=finalresult.LOCATION
+        document.getElementById("cost").innerHTML=finalresult.cost
+        document.getElementById("severity").innerHTML=finalresult.severity
+</script>
+</html> 
+
